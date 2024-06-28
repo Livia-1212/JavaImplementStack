@@ -3,33 +3,38 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-
-        int maxSize = Stack.maxSize;
-        int[] stackArray = new int[maxSize];
-        Stack myObj = new Stack(5);
+        Stack stack = new Stack(5);
+        int[] stackArray = new int[5];
         Scanner input = new Scanner(System.in);
 
-        System.out.println("Is stack empty?" + Stack.isEmpty());
+        stack.push(100);
+        stack.push(20);
+        stack.push(30);
+
+        stack.pop();
+
+        System.out.println("Is stack empty?" + stack.isEmpty());
 
         while (true) {
             System.out.println("Choose an operation: " +
                     "push, pop, peek, print, check size, exit ");
 
-            String operation = Scanner.nextLine();
+            String operation = input.nextLine();
 
             if (operation.equalsIgnoreCase("push")) {
                 System.out.println("Enter a value to push:");
-                int first = Scanner.nextInt();
+                int first = input.nextInt();
                 input.nextLine();
-                myObj.push(first);
+                stack.push(first);
             } else if (operation.equalsIgnoreCase("pop")) {
-                myObj.pop();
+                stack.pop();
+                System.out.println("Poped value: " + stack.pop());
             } else if (operation.equalsIgnoreCase("peek")) {
-                myObj.peek();
+                stack.peek();
             } else if (operation.equalsIgnoreCase("print")) {
-                myObj.printStack();
+                stack.printStack();
             } else if (operation.equalsIgnoreCase("check size")) {
-                System.out.println("The size of the stack is " + myObj.size());
+                System.out.println("The size of the stack is " + stack.size());
             } else if (operation.equalsIgnoreCase("exit")) {
                 System.out.println("Thank you, goodbye.");
                 break;
