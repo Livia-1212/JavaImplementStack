@@ -22,11 +22,16 @@ public class Main {
                 input.nextLine();
                 stack.push(first);
             } else if (operation.equalsIgnoreCase("pop")) {
-                stack.pop();
+                try {
+                    System.out.println(stack.pop());
+                } catch (Exception e) {
+                    System.out.println(e.toString());
+                }
             } else if (operation.equalsIgnoreCase("peek")) {
                 stack.peek();
             } else if (operation.equalsIgnoreCase("print")) {
-                    stack.printStack();
+//                    stack.printStack();
+                System.out.println(stack);
             } else if (operation.equalsIgnoreCase("check size")) {
                 System.out.println("The size of the stack is " + stack.size());
             } else if (operation.equalsIgnoreCase("exit")) {
